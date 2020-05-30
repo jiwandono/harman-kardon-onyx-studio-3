@@ -1,5 +1,8 @@
 # Harman Kardon Onyx Studio 3 issue tracker
 
+- [No sound unless a button is pressed and held](#no-sound-unless-a-button-is-pressed-and-held)
+- [Stuttering](#stuttering)
+
 ## No sound unless a button is pressed and held
 
 ### Symptoms
