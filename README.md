@@ -1,11 +1,19 @@
-# Harman Kardon Onyx Studio 3 issue tracker
+# Tinkering around with Harman Kardon Onyx Studio 3
 
-- [No sound unless a button is pressed and held](#no-sound-unless-a-button-is-pressed-and-held)
-- [Stuttering](#stuttering)
+* [Reverse engineering notes](#reverse-engineering-notes)
+* [Issues](#issues)
+  + [No sound unless a button is pressed and held](#no-sound-unless-a-button-is-pressed-and-held)
+  + [Stuttering](#stuttering)
 
-## No sound unless a button is pressed and held
+## Reverse engineering notes
 
-### Symptoms
+TODO
+
+## Issues
+
+### No sound unless a button is pressed and held
+
+#### Symptoms
 
 There seems to be multiple reports on the net related to this issue, all with the following symptoms.
 
@@ -15,7 +23,7 @@ There seems to be multiple reports on the net related to this issue, all with th
 
 I personally have three of this speaker, two of them exhibiting this same problem.
 
-### Solution
+#### Solution
 This unit uses Texas Instruments PCM5121 audio DACs as seen on the following photo. Two chips are required because there are four different channels to handle. As described on the [datasheet](https://www.ti.com/product/PCM5121), this chip has XSMT pin for soft mute control. Low input value means soft mute, high input value mean soft un-mute. Quick check by connecting XSMT and DVDD pins with jumper wire causing the sound to come out. For some reason the XSMT pins wasn't getting correct value, hence the muted sound.
 
 ![Texas Instruments PCM5121 on Harman Kardon Onyx Studio 3](./images/pcm5121.jpg)
@@ -26,7 +34,7 @@ Quoting the datasheet,
 
 however in my case, I use DVDD instead since it seems to work just fine. Also AVDD is too far away. That blob of solder bridging XSMT and DVDD on the left chip is the result of my lazy solution to this problem. It's not necessary to do the same on the other chip since it seems the XSMT pins are connected to each other. No side effects are observed so far.
 
-## Stuttering
+### Stuttering
 
 Stutters are observed when paired with the following devices.
 
