@@ -31,6 +31,11 @@ Switching from normal operation to firmware update can be done with the followin
 2. Hold the `Volume -` and `Phone` buttons for 10 seconds
 3. The unit will reset itself into firmware update mode
 
+The USB device is identified as described by `lsusb` output below.
+
+```
+Bus 001 Device 005: ID 0ecb:1ebe  000A00003500
+```
 
 ### Firmware dump analysis
 
